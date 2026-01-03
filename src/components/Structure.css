@@ -1,0 +1,220 @@
+/* ========================================
+   STRUCTURE SECTION STYLES
+   ======================================== */
+
+.structure {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Lines */
+.structure-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.structure-line {
+    position: absolute;
+    background: linear-gradient(180deg, transparent 0%, var(--border-subtle) 50%, transparent 100%);
+    width: 1px;
+}
+
+.line-1 {
+    left: 25%;
+    top: 10%;
+    height: 80%;
+    opacity: 0.5;
+}
+
+.line-2 {
+    left: 50%;
+    top: 5%;
+    height: 90%;
+    opacity: 0.3;
+}
+
+.line-3 {
+    left: 75%;
+    top: 15%;
+    height: 70%;
+    opacity: 0.5;
+}
+
+/* Pillars Container */
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Pillar Card */
+.pillar-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    transition: var(--transition-normal);
+    overflow: hidden;
+}
+
+.pillar-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+}
+
+.pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.pillar-card:hover::before {
+    opacity: 1;
+}
+
+/* Pillar Header */
+.pillar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.pillar-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(168, 85, 247, 0.05) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-normal);
+}
+
+.pillar-card:hover .pillar-icon-wrapper {
+    border-color: var(--border-accent);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.pillar-icon {
+    font-size: 2rem;
+}
+
+.pillar-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--border-subtle);
+    line-height: 1;
+    transition: color var(--transition-normal);
+}
+
+.pillar-card:hover .pillar-number {
+    color: rgba(139, 92, 246, 0.2);
+}
+
+/* Pillar Content */
+.pillar-content {
+    position: relative;
+    z-index: 1;
+}
+
+.pillar-subtitle {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.pillar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.pillar-description {
+    font-size: 0.95rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Pillar Features */
+.pillar-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pillar-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.pillar-feature svg {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+/* Decorative Corner */
+.pillar-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .pillars-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .pillar-card {
+        padding: 2rem;
+    }
+
+    .structure-line {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .pillar-icon-wrapper {
+        width: 56px;
+        height: 56px;
+    }
+
+    .pillar-icon {
+        font-size: 1.75rem;
+    }
+
+    .pillar-number {
+        font-size: 2.5rem;
+    }
+}

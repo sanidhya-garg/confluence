@@ -1,0 +1,33 @@
+/* ========================================
+   APP STYLES
+   ======================================== */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth transitions for sections */
+section {
+  position: relative;
+}
+
+/* Page load animation */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.app {
+  animation: pageLoad 0.5s ease-out;
+}
