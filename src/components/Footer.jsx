@@ -23,6 +23,22 @@ const Footer = () => {
                             <a href="#membership">Membership</a>
                         </div>
 
+                        <div className="footer-contact-group">
+                            <span className="contact-label">Connect</span>
+                            <div className="contact-items">
+                                <a href="tel:+916301664351" className="contact-pill">
+                                    <span className="contact-name">Aghamarsh</span>
+                                    <span className="contact-sep">—</span>
+                                    <span className="contact-number">6301664351</span>
+                                </a>
+                                <a href="tel:+919462100725" className="contact-pill">
+                                    <span className="contact-name">Akshat</span>
+                                    <span className="contact-sep">—</span>
+                                    <span className="contact-number">94621 00725</span>
+                                </a>
+                            </div>
+                        </div>
+
                         <div className="footer-actions">
                             <div className="social-icons">
                                 <a href="#" className="social-link" aria-label="Twitter"><TwitterIcon /></a>

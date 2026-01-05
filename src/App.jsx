@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -6,9 +7,12 @@ import Structure from './components/Structure';
 import Council from './components/Council';
 import Membership from './components/Membership';
 import Footer from './components/Footer';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 import './App.css';
 
-function App() {
+// Home Page Component
+function HomePage() {
   useEffect(() => {
     // Scroll animation observer
     const observerOptions = {
@@ -64,6 +68,19 @@ function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+// Main App with Router
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

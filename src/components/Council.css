@@ -1,204 +1,199 @@
 /* ========================================
-   COUNCIL SECTION STYLES
+   COUNCIL / NOTABLE ALUMNI STYLES
    ======================================== */
 
 .council {
-    position: relative;
-    background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.03) 50%, transparent 100%);
+    padding: 8rem 0;
+    background: var(--bg-primary);
 }
 
-/* Council Grid */
-.council-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 0;
-}
-
-/* Council Member Card */
-.council-member {
-    position: relative;
+/* Section Header - Centered */
+.council .section-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    padding: 3rem 2rem;
-    background: linear-gradient(180deg, #0a0a0f 0%, #1e1b4b 100%);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    border-radius: 24px;
-    transition: all 0.4s ease;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
 }
 
-.council-member:hover {
+.council .section-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+.council .section-title {
+    display: block;
+    width: 100%;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.council .section-description {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-tertiary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Alumni Strip - Horizontal scroll */
+.alumni-strip {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar but keep functionality */
+.alumni-strip::-webkit-scrollbar {
+    height: 6px;
+}
+
+.alumni-strip::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 3px;
+}
+
+.alumni-strip::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 3px;
+}
+
+/* Alumni Card */
+.alumni-card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    scroll-snap-align: start;
+}
+
+.alumni-photo {
+    width: 200px;
+    height: 260px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--bg-tertiary) 0%, #1a1a2e 100%);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    transition: all var(--transition-normal);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.alumni-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform var(--transition-normal);
+}
+
+.alumni-card:hover .alumni-photo {
+    transform: translateY(-8px);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 16px 48px rgba(139, 92, 246, 0.15);
+}
+
+.alumni-card:hover .alumni-photo img {
+    transform: scale(1.05);
+}
+
+.alumni-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding-left: 4px;
+}
+
+/* See All Card */
+.see-all-card {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    scroll-snap-align: start;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.see-all-card:hover {
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
     border-color: var(--accent-primary);
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 16px 48px rgba(139, 92, 246, 0.2);
 }
 
-.council-member:hover .avatar-ring {
-    animation: ringPulse 2s ease-in-out infinite;
-}
-
-/* Member Avatar */
-.member-avatar {
-    position: relative;
-    width: 100px;
-    height: 100px;
+.see-all-icon {
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.5rem;
-}
-
-.avatar-initials {
-    position: relative;
-    z-index: 2;
-    width: 84px;
-    height: 84px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent-gradient);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+}
+
+.see-all-card:hover .see-all-icon {
+    background: var(--accent-primary);
+    color: white;
+}
+
+.see-all-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.see-all-text {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-
-
-.member-img {
-    position: relative;
-    z-index: 2;
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(139, 92, 246, 0.3);
+.see-all-subtext {
+    font-size: 0.85rem;
+    color: var(--text-muted);
 }
-
-.member-linkedin {
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    width: 32px;
-    height: 32px;
-    background: #0077b5;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    transition: transform var(--transition-bounce);
-    border: 3px solid #1e1b4b;
-    /* Match card bg */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.member-linkedin:hover {
-    transform: scale(1.1);
-}
-
-.avatar-ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 50%;
-    opacity: 0.5;
-}
-
-@keyframes ringPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: scale(1.15);
-        opacity: 0.2;
-    }
-}
-
-/* Member Info */
-.member-info {
-    text-align: center;
-}
-
-.member-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-}
-
-.member-role {
-    font-size: 0.9rem;
-    color: var(--text-tertiary);
-    font-weight: 500;
-}
-
-/* Member Glow */
-.member-glow {
-    position: absolute;
-    bottom: -50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--purple-600) 0%, transparent 70%);
-    transform: translateX(-50%);
-    opacity: 0;
-    filter: blur(40px);
-    transition: opacity var(--transition-normal);
-    pointer-events: none;
-}
-
-
 
 /* Responsive */
-@media (max-width: 1024px) {
-    .council-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    .council-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .council {
+        padding: 5rem 0;
     }
 
-    .council-member {
-        flex-direction: row;
-        padding: 1.5rem;
-        gap: 1.25rem;
+    .alumni-photo {
+        width: 160px;
+        height: 200px;
     }
 
-    .member-avatar {
-        width: 60px;
-        height: 60px;
+    .see-all-card {
+        width: 120px;
+        height: 200px;
     }
 
-    .avatar-initials {
+    .see-all-icon {
         width: 48px;
         height: 48px;
-        font-size: 1rem;
-    }
-
-    .member-info {
-        text-align: left;
-    }
-
-    .member-info {
-        text-align: left;
     }
 }

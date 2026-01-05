@@ -47,16 +47,13 @@ const Hero = () => {
 
                     {/* Title */}
                     <h1 className="hero-title animate-on-scroll visible">
-                        <span className="title-line">Where IIT Leaders</span>
-                        <span className="title-line title-accent">Converge & Create</span>
+                        <span className="title-line">Confluence</span>
                     </h1>
 
                     {/* Description */}
-                    <p className="hero-description animate-on-scroll visible">
-                        Confluence brings together entrepreneurs, investors, and senior CXOs
-                        across the IIT ecosystem. A platform for engagement, shared learning,
-                        and collective growth shaping India's innovation landscape.
-                    </p>
+                    <h2 className="hero-subtitle animate-on-scroll visible">
+                        Where IIT Leaders <span className="title-accent">Converge & Create</span>
+                    </h2>
 
                     {/* CTAs */}
                     <div className="hero-ctas animate-on-scroll visible">

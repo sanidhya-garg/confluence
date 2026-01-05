@@ -31,6 +31,26 @@
     filter: blur(60px);
 }
 
+/* Section Header */
+.membership .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+}
+
+.membership .section-label {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.membership .section-title {
+    display: block;
+    width: 100%;
+}
+
 /* Membership Cards */
 .membership-cards {
     display: grid;

@@ -65,6 +65,67 @@
     color: var(--accent-primary);
 }
 
+/* Contact Group */
+.footer-contact-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.contact-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.contact-items {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+}
+
+.contact-pill:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.contact-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.contact-sep {
+    color: var(--text-muted);
+    font-size: 0.8em;
+}
+
+.contact-number {
+    color: var(--text-tertiary);
+    transition: color var(--transition-normal);
+}
+
+.contact-pill:hover .contact-number {
+    color: var(--accent-primary);
+}
+
 /* Actions (Social + Organised) */
 .footer-actions {
     display: flex;
@@ -206,6 +267,16 @@
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 2rem;
+    }
+
+    .footer-contact-group {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .contact-items {
+        flex-wrap: wrap;
+        gap: 0.75rem;
     }
 
     .social-icons {

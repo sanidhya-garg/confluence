@@ -1,7 +1,17 @@
+import { useState } from 'react';
 import './Membership.css';
 import { RocketIcon, DiamondIcon } from './Icons';
+import ApplicationModal from './ApplicationModal';
 
 const Membership = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedType, setSelectedType] = useState('');
+
+    const handleApply = (type) => {
+        setSelectedType(type);
+        setModalOpen(true);
+    };
+
     const membershipTypes = [
         {
             type: 'entrepreneur',
@@ -33,97 +43,109 @@ const Membership = () => {
                 'Private investment discussions'
             ],
             cta: 'Apply as an Investor',
-            featured: true
+            featured: false
         }
     ];
 
     return (
-        <section className="membership section" id="membership">
-            {/* Background Pattern */}
-            <div className="membership-bg">
-                <div className="membership-pattern"></div>
-            </div>
-
-            <div className="container">
-                {/* Section Header */}
-                <div className="section-header animate-on-scroll">
-                    <span className="section-label">Join Us</span>
-                    <h2 className="section-title">
-                        <span className="gradient-text">Membership</span>
-                    </h2>
-                    <p className="section-description">
-                        Confluence offers two distinct, curated membership pathways designed
-                        for leaders who are shaping India's innovation landscape.
-                    </p>
+        <>
+            <section className="membership section" id="membership">
+                {/* Background Pattern */}
+                <div className="membership-bg">
+                    <div className="membership-pattern"></div>
                 </div>
 
-                {/* Membership Cards */}
-                <div className="membership-cards">
-                    {membershipTypes.map((membership, index) => (
-                        <div
-                            key={membership.type}
-                            className={`membership-card ${membership.featured ? 'featured' : ''} animate-on-scroll animate-delay-${index + 1}`}
-                        >
-                            {membership.featured && (
-                                <div className="featured-badge">
-                                    <span>Most Popular</span>
-                                </div>
-                            )}
-
-                            <div className="card-header">
-                                <div className="card-icon">
-                                    {membership.icon}
-                                </div>
-                                <span className="card-subtitle">{membership.subtitle}</span>
-                                <h3 className="card-title">{membership.title}</h3>
-                                <p className="card-description">{membership.description}</p>
-                            </div>
-
-                            <div className="card-benefits">
-                                <span className="benefits-label">What you get:</span>
-                                <ul className="benefits-list">
-                                    {membership.benefits.map((benefit) => (
-                                        <li key={benefit} className="benefit-item">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M20 6L9 17l-5-5" />
-                                            </svg>
-                                            <span>{benefit}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="card-footer">
-                                <button className={`btn ${membership.featured ? 'btn-primary' : 'btn-secondary'} card-cta`}>
-                                    {membership.cta}
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            {/* Card glow effect */}
-                            <div className="card-glow"></div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Bottom Note */}
-                <div className="membership-note animate-on-scroll">
-                    <div className="note-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="12" y1="16" x2="12" y2="12" />
-                            <line x1="12" y1="8" x2="12.01" y2="8" />
-                        </svg>
+                <div className="container">
+                    {/* Section Header */}
+                    <div className="section-header animate-on-scroll">
+                        <span className="section-label">Join Us</span>
+                        <h2 className="section-title">
+                            <span className="gradient-text">Membership</span>
+                        </h2>
+                        <p className="section-description">
+                            Confluence offers two distinct, curated membership pathways designed
+                            for leaders who are shaping India's innovation landscape.
+                        </p>
                     </div>
-                    <p>
-                        Membership is by application only. All applications are reviewed by the Alumni Council
-                        to ensure quality and fit within the Confluence community.
-                    </p>
+
+                    {/* Membership Cards */}
+                    <div className="membership-cards">
+                        {membershipTypes.map((membership, index) => (
+                            <div
+                                key={membership.type}
+                                className={`membership-card ${membership.featured ? 'featured' : ''} animate-on-scroll animate-delay-${index + 1}`}
+                            >
+                                {membership.featured && (
+                                    <div className="featured-badge">
+                                        <span>Most Popular</span>
+                                    </div>
+                                )}
+
+                                <div className="card-header">
+                                    <div className="card-icon">
+                                        {membership.icon}
+                                    </div>
+                                    <span className="card-subtitle">{membership.subtitle}</span>
+                                    <h3 className="card-title">{membership.title}</h3>
+                                    <p className="card-description">{membership.description}</p>
+                                </div>
+
+                                <div className="card-benefits">
+                                    <span className="benefits-label">What you get:</span>
+                                    <ul className="benefits-list">
+                                        {membership.benefits.map((benefit) => (
+                                            <li key={benefit} className="benefit-item">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M20 6L9 17l-5-5" />
+                                                </svg>
+                                                <span>{benefit}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="card-footer">
+                                    <button
+                                        className={`btn ${membership.featured ? 'btn-primary' : 'btn-secondary'} card-cta`}
+                                        onClick={() => handleApply(membership.type)}
+                                    >
+                                        {membership.cta}
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                {/* Card glow effect */}
+                                <div className="card-glow"></div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Bottom Note */}
+                    <div className="membership-note animate-on-scroll">
+                        <div className="note-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="16" x2="12" y2="12" />
+                                <line x1="12" y1="8" x2="12.01" y2="8" />
+                            </svg>
+                        </div>
+                        <p>
+                            Membership is by application only. All applications are reviewed by the Alumni Council
+                            to ensure quality and fit within the Confluence community.
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Application Modal */}
+            <ApplicationModal
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                applicationType={selectedType}
+            />
+        </>
     );
 };
 

@@ -44,6 +44,26 @@
     opacity: 0.5;
 }
 
+/* Section Header */
+.structure .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+}
+
+.structure .section-label {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.structure .section-title {
+    display: block;
+    width: 100%;
+}
+
 /* Pillars Container */
 .pillars-container {
     display: grid;

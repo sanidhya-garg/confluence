@@ -98,6 +98,45 @@
     font-size: 0.9rem;
 }
 
+.nav-login,
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.25rem;
+    font-size: 0.875rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-login:hover,
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-logout {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.mobile-login {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.mobile-logout {
+    color: var(--text-tertiary);
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 /* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
