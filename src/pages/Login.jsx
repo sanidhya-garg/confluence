@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
-import { signInWithGoogle, signInWithEmail, onAuthChange } from '../firebase/auth';
+import {
+    signInWithGoogle,
+    signInWithGoogleRedirect,
+    checkRedirectResult,
+    signInWithEmail,
+    onAuthChange
+} from '../firebase/auth';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,6 +17,20 @@ const Login = () => {
         email: '',
         password: ''
     });
+
+    // Handle Redirect Result (for mobile flow)
+    useEffect(() => {
+        const checkRedirect = async () => {
+            const { user, error } = await checkRedirectResult();
+            if (user) {
+                navigate('/dashboard');
+            }
+            if (error) {
+                setError(error);
+            }
+        };
+        checkRedirect();
+    }, [navigate]);
 
     useEffect(() => {
         const unsubscribe = onAuthChange((user) => {
@@ -29,6 +49,20 @@ const Login = () => {
         setLoading(true);
         setError('');
 
+        // Mobile detection - use Redirect for better mobile support
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            const { error } = await signInWithGoogleRedirect();
+            if (error) {
+                setError(error);
+                setLoading(false);
+            }
+            // If no error, redirect happens, page unloads
+            return;
+        }
+
+        // Desktop - use Popup
         const { error } = await signInWithGoogle();
         if (error) {
             setError(error);
