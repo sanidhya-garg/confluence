@@ -51,7 +51,11 @@ const Council = () => {
                             <div className="alumni-photo">
                                 <img src={alumni.image} alt={alumni.name} />
                             </div>
-                            <span className="alumni-name">{alumni.name}</span>
+                            <div className='alumni-box'>
+                                <span className="alumni-name">{alumni.name}</span>
+                                <span className='alumni-title'>CEO of edcIITD</span>
+                            <span className='alumni-description'>CEO of edcIITD</span>
+                            </div>
                         </div>
                     ))}
 

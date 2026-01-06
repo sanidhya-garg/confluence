@@ -19,7 +19,7 @@ const Footer = () => {
                         <div className="footer-links">
                             <a href="#about">About</a>
                             <a href="#structure">Structure</a>
-                            <a href="#council">Notable Council</a>
+                            <a href="#council">Notable Alumni</a>
                             <a href="#membership">Membership</a>
                         </div>
 
@@ -50,7 +50,8 @@ const Footer = () => {
                                 <span className="org-label">Organised by</span>
                                 <div className="org-logos">
                                     <img src="/edclogo.svg" alt="EDC IIT Delhi" className="org-logo" />
-                                    <img src="/export AR Logo.svg" alt="Alumni Relations" className="org-logo" />
+                                    <img src="/export AR Logo.svg" alt="Alumni Relations" className="org-logo"
+                                    id='ARlogo' />
                                 </div>
                             </div>
                         </div>

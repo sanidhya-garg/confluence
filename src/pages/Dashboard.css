@@ -285,6 +285,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+    gap: 1.25rem;
 }
 
 .section-header h2 {

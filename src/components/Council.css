@@ -77,6 +77,11 @@
     align-items: flex-start;
     gap: 1.25rem;
     scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.alumni-card:hover {
+    transform:scale(0.95);
 }
 
 .alumni-photo {
@@ -88,6 +93,12 @@
     border: 1px solid rgba(139, 92, 246, 0.1);
     transition: all var(--transition-normal);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.alumni-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .alumni-photo img {
@@ -115,6 +126,25 @@
     color: var(--text-primary);
     padding-left: 4px;
 }
+
+.alumni-title{
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.alumni-description {
+    opacity: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: opacity 0.3s ease;
+}
+
+
+.alumni-card:hover .alumni-description{
+    opacity: 1;
+    
+}
+
 
 /* See All Card */
 .see-all-card {
