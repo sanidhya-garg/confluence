@@ -19,7 +19,7 @@ const Footer = () => {
                         <div className="footer-links">
                             <a href="#about">About</a>
                             <a href="#structure">Structure</a>
-                            <a href="#council">Alumni Council</a>
+                            <a href="#council">Notable Council</a>
                             <a href="#membership">Membership</a>
                         </div>
 

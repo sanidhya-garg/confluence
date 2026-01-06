@@ -142,6 +142,11 @@
     transition: background var(--transition-normal);
 }
 
+#ARlogo {
+    height: 100px;
+    width: auto;
+}
+
 .presenter-logos:hover {
     background: rgba(255, 255, 255, 0.05);
 }
