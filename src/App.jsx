@@ -9,6 +9,7 @@ import Membership from './components/Membership';
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import NotableAlumni from './pages/NotableAlumni';
 import './App.css';
 
 // Home Page Component
@@ -79,6 +80,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/notable-alumni" element={<NotableAlumni />} />
       </Routes>
     </BrowserRouter>
   );

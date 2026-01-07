@@ -71,6 +71,7 @@
 
 /* Alumni Card */
 .alumni-card {
+    position: relative;
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
@@ -85,6 +86,7 @@
 }
 
 .alumni-photo {
+    position: relative;
     width: 200px;
     height: 260px;
     border-radius: 20px;
@@ -130,6 +132,7 @@
 .alumni-title{
     font-size: 0.9rem;
     color: var(--text-secondary);
+    padding-left: 4px;
 }
 
 .alumni-description {
@@ -137,6 +140,50 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     transition: opacity 0.3s ease;
+    padding-left: 4px;
+}
+
+.alumni-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 20px;
+}
+
+.alumni-card:hover .alumni-overlay {
+    opacity: 1;
+}
+
+.linkedin-link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    color: white;
+    transition: all var(--transition-normal);
+    transform: translateY(20px);
+}
+
+.alumni-card:hover .linkedin-link {
+    transform: translateY(0);
+}
+
+.linkedin-link:hover {
+    background: var(--accent-secondary);
+    transform: scale(1.1);
+}
+
+.linkedin-link svg {
+    width: 24px;
+    height: 24px;
 }
 
 

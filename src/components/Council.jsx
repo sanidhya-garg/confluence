@@ -1,76 +1,98 @@
-import './Council.css';
-import { ArrowRightIcon } from './Icons';
+import { Link } from "react-router-dom";
+import "./Council.css";
+import { ArrowRightIcon } from "./Icons";
+import { LinkedInIcon } from '../components/Icons';
 
 const Council = () => {
-    const notableAlumni = [
-        {
-            name: 'Vikram Gupta',
-            image: '/council/vikram_gupta.jpg',
-        },
-        {
-            name: 'Alok Mittal',
-            image: '/council/alok_mittal.png',
-        },
-        {
-            name: 'Pankaj Vermani',
-            image: '/council/pankaj_vermani.png',
-        },
-        {
-            name: 'Gaurav Bhatnagar',
-            image: '/council/gaurav_bhatnagar.jpg',
-        },
-        {
-            name: 'Gaurav Agarwal',
-            image: '/council/gaurav_agarwal.png',
-        },
-    ];
+  const notableAlumni = [
+    {
+      name: "Vikram Gupta",
+      image: "/council/vikram_gupta.jpg",
+      discription:"CEO of edcIITD",
+      linkedin:"",
+    },
+    {
+      name: "Alok Mittal",
+      image: "/council/alok_mittal.png",
+      discription:"CEO of edcIITD",
+      linkedin:"https://www.linkedin.com/in/alok-mittal-590a/?originalSubdomain=in",
+    },
+    // {
+    //   name: "Pankaj Vermani",
+    //   image: "/council/pankaj_vermani.png",
+    //   discription:"CEO of edcIITD",
+    //   linkedin:"",
+    // },
+    // {
+    //   name: "Gaurav Bhatnagar",
+    //   image: "/council/gaurav_bhatnagar.jpg",
+    //   discription:"CEO of edcIITD",
+    //   linkedin:"",
+    // },
+    // {
+    //   name: "Gaurav Agarwal",
+    //   image: "/council/gaurav_agarwal.png",
+    //   discription:"CEO of edcIITD",
+    //   linkedin:"",
+    // },
+  ];
 
-    return (
-        <section className="council section" id="council">
-            <div className="container">
-                {/* Section Header - Centered like before */}
-                <div className="section-header animate-on-scroll">
-                    <span className="section-label">Leadership</span>
-                    <h2 className="section-title">
-                        Notable <span className="gradient-text">Alumni</span>
-                    </h2>
-                    <p className="section-description">
-                        Accomplished IIT alumni leaders who have built successful ventures
-                        and are shaping India's innovation landscape.
-                    </p>
+  return (
+    <section className="council section" id="council">
+      <div className="container">
+        {/* Section Header - Centered like before */}
+        <div className="section-header animate-on-scroll">
+          <span className="section-label">Leadership</span>
+          <h2 className="section-title">
+            Notable <span className="gradient-text">Alumni</span>
+          </h2>
+          <p className="section-description">
+            Accomplished IIT alumni leaders who have built successful ventures
+            and are shaping India's innovation landscape.
+          </p>
+        </div>
+
+        {/* Alumni Strip */}
+        <div className="alumni-strip">
+          {notableAlumni.map((alumni, index) => (
+            <div
+              key={index}
+              className="alumni-card animate-on-scroll"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="alumni-photo">
+                <img src={alumni.image} alt={alumni.name} />
+                <div className="alumni-overlay">
+                  <a
+                    href={alumni.linkedin}
+                    className="linkedin-link"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedInIcon />
+                  </a>
                 </div>
-
-                {/* Alumni Strip */}
-                <div className="alumni-strip">
-                    {notableAlumni.map((alumni, index) => (
-                        <div
-                            key={index}
-                            className="alumni-card animate-on-scroll"
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                            <div className="alumni-photo">
-                                <img src={alumni.image} alt={alumni.name} />
-                            </div>
-                            <div className='alumni-box'>
-                                <span className="alumni-name">{alumni.name}</span>
-                                <span className='alumni-title'>CEO of edcIITD</span>
-                            <span className='alumni-description'>CEO of edcIITD</span>
-                            </div>
-                        </div>
-                    ))}
-
-                    {/* See All Card */}
-                    <a href="#" className="see-all-card animate-on-scroll">
-                        <div className="see-all-icon">
-                            <ArrowRightIcon />
-                        </div>
-                        <span className="see-all-text">See All</span>
-                        <span className="see-all-subtext">Notable Alumni</span>
-                    </a>
-                </div>
+              </div>
+              <div className="alumni-box">
+                <span className="alumni-name">{alumni.name}</span>
+                <span className="alumni-title">{alumni.discription}</span>
+                {/* <span className='alumni-description'>CEO of edcIITD</span> */}
+                
+              </div>
             </div>
-        </section>
-    );
+          ))}
+
+          {/* See All Card */}
+          <Link to="/notable-alumni" className="see-all-card animate-on-scroll">
+            <div className="see-all-icon">
+              <ArrowRightIcon />
+            </div>
+            <span className="see-all-text">See All</span>
+            <span className="see-all-subtext">Notable Alumni</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Council;
