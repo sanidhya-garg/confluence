@@ -58,6 +58,24 @@ const NotableAlumni = () => {
     description: ''
   },
   {
+    name: 'Shivani Singh Kapoor',
+    image: '/notablealumni/shivani_singh_kapoor.jpg',
+    title: 'Co-founder',
+    company: 'ThinkStartup',
+    iit: '',
+    linkedin: 'https://www.linkedin.com/in/shivani/?originalSubdomain=in',
+    description: ''
+  },
+  {
+    name: 'Kamaljit Rastogi',
+    image: '/notablealumni/kamaljit_rastogi.jpg',
+    title: 'CEO',
+    company: 'Omnifi',
+    iit: '',
+    linkedin: 'https://www.linkedin.com/in/kamaljitrastogi/?originalSubdomain=in',
+    description: ''
+  },
+  {
     name: 'Tejinderpal Miglani',
     image: '/notablealumni/tejinderpal_miglani.jpg',
     title: 'Investor',
