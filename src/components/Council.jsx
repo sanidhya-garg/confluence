@@ -8,13 +8,13 @@ const Council = () => {
     {
       name: "Vikram Gupta",
       image: "/council/vikram_gupta.jpg",
-      discription:"CEO of edcIITD",
+      discription:"Managing Partner of IvyCap Ventures",
       linkedin:"",
     },
     {
       name: "Alok Mittal",
       image: "/council/alok_mittal.png",
-      discription:"CEO of edcIITD",
+      discription:"Founder of Indifi Technologies",
       linkedin:"https://www.linkedin.com/in/alok-mittal-590a/?originalSubdomain=in",
     },
     // {
