@@ -17,24 +17,24 @@ const Council = () => {
       discription:"Founder of Indifi Technologies",
       linkedin:"https://www.linkedin.com/in/alok-mittal-590a/?originalSubdomain=in",
     },
-    // {
-    //   name: "Pankaj Vermani",
-    //   image: "/council/pankaj_vermani.png",
-    //   discription:"CEO of edcIITD",
-    //   linkedin:"",
-    // },
-    // {
-    //   name: "Gaurav Bhatnagar",
-    //   image: "/council/gaurav_bhatnagar.jpg",
-    //   discription:"CEO of edcIITD",
-    //   linkedin:"",
-    // },
-    // {
-    //   name: "Gaurav Agarwal",
-    //   image: "/council/gaurav_agarwal.png",
-    //   discription:"CEO of edcIITD",
-    //   linkedin:"",
-    // },
+    {
+      name: "Pankaj Vermani",
+      image: "/council/pankaj_vermani.jpeg",
+      discription:"Founder of Clovia",
+      linkedin:"https://www.linkedin.com/in/pankajvermani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    },
+    {
+      name: "Vivke Shrivastava",
+      image: "/council/vivek_shrivastava.jpeg",
+      discription:"Founder of HCAH",
+      linkedin:"https://www.linkedin.com/in/pankajvermani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    },
+    {
+      name: "Nitin Jain",
+      image: "/council/nitin_jain.jpeg",
+      discription:"Founder of OfBusiness",
+      linkedin:"https://www.linkedin.com/in/nitin-jain-17b82310?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    },
   ];
 
   return (
