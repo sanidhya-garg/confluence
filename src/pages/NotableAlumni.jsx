@@ -155,7 +155,34 @@ const NotableAlumni = () => {
     iit: '',
     linkedin: 'https://www.linkedin.com/in/manoj-s-nayak-30a7/?originalSubdomain=in',
     description: ''
-  }
+  },
+  {
+      name: "Pankaj Vermani",
+      image: "/council/pankaj_vermani.jpeg",
+      title:"Founder",
+      company:"Clovia",
+      iit:"",
+      discription:"",
+      linkedin:"https://www.linkedin.com/in/pankajvermani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    },
+    {
+      name: "Vivke Shrivastava",
+      image: "/council/vivek_shrivastava.jpeg",
+      title:"Founder",
+      company:"HCAH",
+      iit:"",
+      discription:"",
+      linkedin:"https://www.linkedin.com/in/pankajvermani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    },
+    {
+      name: "Nitin Jain",
+      image: "/council/nitin_jain.jpeg",
+      title:"Founder",
+      company:"OfBusiness",
+      iit:"",
+      discription:"",
+      linkedin:"https://www.linkedin.com/in/nitin-jain-17b82310?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    },
 ]
 
     return (
