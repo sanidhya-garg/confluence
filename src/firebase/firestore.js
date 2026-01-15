@@ -6,7 +6,10 @@ import {
     query,
     where,
     orderBy,
-    serverTimestamp
+    serverTimestamp,
+    doc,
+    updateDoc,
+    getDoc
 } from 'firebase/firestore';
 import { db } from './config';
 
@@ -63,5 +66,35 @@ export const getUserApplication = async (userId) => {
         };
     } catch (error) {
         return { application: null, error: error.message };
+    }
+};
+
+// Get single application by ID
+export const getApplicationById = async (id) => {
+    try {
+        const docRef = doc(db, APPLICATIONS_COLLECTION, id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            return { application: { id: docSnap.id, ...docSnap.data() }, error: null };
+        } else {
+            return { application: null, error: 'Application not found' };
+        }
+    } catch (error) {
+        return { application: null, error: error.message };
+    }
+};
+
+// Update application status (approve/reject)
+export const updateApplicationStatus = async (applicationId, newStatus) => {
+    try {
+        const docRef = doc(db, APPLICATIONS_COLLECTION, applicationId);
+        await updateDoc(docRef, {
+            status: newStatus,
+            updatedAt: serverTimestamp()
+        });
+        return { error: null };
+    } catch (error) {
+        return { error: error.message };
     }
 };

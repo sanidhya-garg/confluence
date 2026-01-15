@@ -7,7 +7,8 @@ import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     signOut as firebaseSignOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signInAnonymously
 } from 'firebase/auth';
 import { auth } from './config';
 
@@ -60,6 +61,16 @@ export const signInWithEmail = async (email, password) => {
 export const signUpWithEmail = async (email, password) => {
     try {
         const result = await createUserWithEmailAndPassword(auth, email, password);
+        return { user: result.user, error: null };
+    } catch (error) {
+        return { user: null, error: error.message };
+    }
+};
+
+// Anonymous Sign In (For Admin)
+export const signInAnonymous = async () => {
+    try {
+        const result = await signInAnonymously(auth);
         return { user: result.user, error: null };
     } catch (error) {
         return { user: null, error: error.message };

@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="footer-brand">
                         <img src="/favicon.svg" alt="Confluence Logo" className="logo-img" />
                         <p className="footer-description">
-                            A Pan-IIT initiative strengthening collaboration among entrepreneurs, investors, and senior CXOs across the IIT ecosystem.
+                            A IITD initiative strengthening collaboration among entrepreneurs, investors, and senior CXOs across the IIT ecosystem.
                         </p>
                     </div>
 

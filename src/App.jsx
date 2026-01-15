@@ -9,6 +9,9 @@ import Membership from './components/Membership';
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminApplicationDetails from './pages/AdminApplicationDetails';
 import './App.css';
 
 // Home Page Component
@@ -79,6 +82,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/application/:id" element={<AdminApplicationDetails />} /> {/* Added route */}
       </Routes>
     </BrowserRouter>
   );

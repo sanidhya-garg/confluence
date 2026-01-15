@@ -17,8 +17,8 @@ const Membership = () => {
             type: 'entrepreneur',
             icon: <RocketIcon />,
             title: 'Alumni Entrepreneur',
-            subtitle: 'For IIT Founders',
-            description: 'For IIT founders building ventures across sectors. Get access to curated investors, cross-IIT collaborations, and closed-door engagements.',
+            subtitle: 'For IITD Founders',
+            description: 'For IITD founders building ventures across sectors. Get access to curated investors, IITD collaborations, and closed-door engagements.',
             benefits: [
                 'Direct access to relevant investors',
                 'Meaningful connections with IIT founders',
