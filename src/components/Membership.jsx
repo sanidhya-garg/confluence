@@ -18,10 +18,10 @@ const Membership = () => {
             icon: <RocketIcon />,
             title: 'Alumni Entrepreneur',
             subtitle: 'For IIT Founders',
-            description: 'For IIT founders building ventures across sectors. Get access to curated investors, cross-IIT collaborations, and closed-door engagements.',
+            description: 'For IITD founders building ventures across sectors. Get access to curated investors, Alumni collaborations, and closed-door engagements.',
             benefits: [
                 'Direct access to relevant investors',
-                'Meaningful connections with IIT founders',
+                'Meaningful connections with IITD founders',
                 'Opportunities for collaboration & talent',
                 'Small, honest conversations with leaders',
                 'Priority event access'
@@ -36,7 +36,7 @@ const Membership = () => {
             subtitle: 'For VCs & Angels',
             description: 'For VCs, angels, and fund leaders engaging with high-quality IIT-founded ventures. Access vetted founders and high-signal dealflow.',
             benefits: [
-                'A vetted pool of IIT-founded ventures',
+                'A vetted pool of IITD-founded ventures',
                 'Efficient access to high-signal founders',
                 'Sector and stage-relevant interactions',
                 'Trusted setting for founder relationships',

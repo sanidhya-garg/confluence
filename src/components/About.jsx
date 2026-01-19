@@ -6,7 +6,7 @@ const About = () => {
         {
             icon: <GlobeIcon />,
             title: 'Curated Pan-IIT Participation',
-            description: 'Founders, investors, and leaders selected across IITs, stages, and sectors in a trusted setting.'
+            description: 'Founders, investors, and leaders selected across , stages, and sectors in a trusted setting.'
         },
         {
             icon: <TrustIcon />,
@@ -15,7 +15,7 @@ const About = () => {
         },
         {
             icon: <LightbulbIcon />,
-            title: 'Cross-IIT Exchange & Learning',
+            title: 'Knowledge Exchange & Learning',
             description: 'Peer conversations and shared insight across generations of IIT entrepreneurs.'
         },
         {
@@ -42,7 +42,7 @@ const About = () => {
                 <div className="section-header animate-on-scroll w-full">
                     <span className="section-label">What is Confluence?</span>
                     <h2 className="section-title">
-                        A Curated <span className="gradient-text">Pan-IIT Forum</span>
+                        A Curated <span className="gradient-text">Alumni Participation</span>
                     </h2>
                     <p className="section-description">
                         Confluence brings together alumni founders, venture partners, and industry leaders
