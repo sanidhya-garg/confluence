@@ -8,7 +8,7 @@
 }
 
 /* Section Header */
-.section-header  {
+.section-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,6 +186,7 @@
     color: var(--text-tertiary);
     font-size: 0.95rem;
 }
+
 .know-more-container {
     display: flex;
     flex-direction: column;
@@ -238,7 +239,7 @@
     width: 220px;
     height: auto;
     filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.3));
-    animation: float 6s ease-in-out infinite;
+    /* animation: float 6s ease-in-out infinite; - Removed oscillating animation */
     border-radius: var(--radius-lg);
 }
 
@@ -268,9 +269,10 @@
         justify-content: center;
     }
 
-    .know-more-container{
+    .know-more-container {
         align-items: center;
     }
+
     .launch-visual {
         order: -1;
         margin-bottom: 1rem;
