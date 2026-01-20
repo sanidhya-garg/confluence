@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminApplicationDetails from './pages/AdminApplicationDetails';
+import NotableAlumni from './pages/NotableAlumni';
 import './App.css';
 
 // Home Page Component
@@ -84,7 +85,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/application/:id" element={<AdminApplicationDetails />} /> {/* Added route */}
+        <Route path="/admin/application/:id" element={<AdminApplicationDetails />} />
+        <Route path="/notable-alumni" element={<NotableAlumni />} />
       </Routes>
     </BrowserRouter>
   );

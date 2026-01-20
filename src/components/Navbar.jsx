@@ -32,7 +32,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'About', href: '#about' },
         { name: 'Structure', href: '#structure' },
-        { name: 'Council', href: '#council' },
+        { name: 'Notable Alumni', href: '#council' },
         { name: 'Membership', href: '#membership' },
     ];
 

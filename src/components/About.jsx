@@ -39,7 +39,7 @@ const About = () => {
         <section className="about section" id="about">
             <div className="container">
                 {/* Section Header */}
-                <div className="section-header animate-on-scroll">
+                <div className="section-header animate-on-scroll w-full">
                     <span className="section-label">What is Confluence?</span>
                     <h2 className="section-title">
                         A Curated <span className="gradient-text"> IITD Alumni Forum</span>
@@ -92,13 +92,23 @@ const About = () => {
                             policymakers, and ecosystem leaders at a moment of exceptional momentum
                             for Indian innovation.
                         </p>
-                        <div className="launch-location">
+                        <div className='know-more-container'>
+                            <div className="launch-location">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                 <circle cx="12" cy="10" r="3" />
                             </svg>
                             <span>Indian Institute of Technology Delhi</span>
+                            
                         </div>
+                        <a href="https://becon.edciitd.com/" className="know-more-link">
+                            Know More
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        </div>
+                        
                     </div>
                     <div className="launch-visual">
                         <img src="/becon.svg" alt="BECon IIT Delhi" className="launch-visual-img" />

@@ -40,7 +40,7 @@ const Hero = () => {
                     <div className="hero-presenters animate-on-scroll visible">
                         <div className="presenter-logos">
                             <img src="/edclogo.svg" alt="EDC IIT Delhi" className="presenter-logo" />
-                            <img src="/export AR Logo.svg" alt="Alumni Relations IIT Delhi" className="presenter-logo" />
+                            <img src="/export AR Logo.svg" alt="Alumni Relations IIT Delhi" className="presenter-logo" id='ARlogo' />
                         </div>
                         <span className="presenter-text">Presents</span>
                     </div>

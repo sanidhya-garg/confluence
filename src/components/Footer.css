@@ -163,7 +163,7 @@
 .footer-organised {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     gap: 0.75rem;
     text-align: right;
     padding-top: 1rem;
@@ -195,6 +195,11 @@
 .org-logo:hover {
     opacity: 1;
     filter: grayscale(0%);
+}
+
+#ARlogo {
+    height: 50px;
+    width:auto;
 }
 
 /* Footer Bottom */

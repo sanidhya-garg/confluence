@@ -8,7 +8,7 @@
 }
 
 /* Section Header */
-.section-header {
+.section-header  {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,8 +19,6 @@
 
 .section-label {
     display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
     color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -29,8 +27,10 @@
 
 .section-title {
     display: block;
-    width: 100%;
     margin-bottom: 1rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-description {
@@ -186,9 +186,46 @@
     color: var(--text-tertiary);
     font-size: 0.95rem;
 }
+.know-more-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
 
 .launch-location svg {
     color: var(--accent-primary);
+}
+
+/* Know More Link */
+.know-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.know-more-link:hover {
+    background: var(--accent-gradient-hover);
+    box-shadow: 0 6px 30px rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+.know-more-link svg {
+    transition: transform var(--transition-normal);
+}
+
+.know-more-link:hover svg {
+    transform: translateX(4px);
 }
 
 /* IIT Logo Placeholder */
@@ -231,6 +268,9 @@
         justify-content: center;
     }
 
+    .know-more-container{
+        align-items: center;
+    }
     .launch-visual {
         order: -1;
         margin-bottom: 1rem;
