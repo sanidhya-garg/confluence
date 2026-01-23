@@ -23,7 +23,7 @@ const Login = () => {
         const checkRedirect = async () => {
             const { user, error } = await checkRedirectResult();
             if (user) {
-                navigate('/dashboard');
+                navigate('/dashboard', { replace: true });
             }
             if (error) {
                 setError(error);
@@ -35,7 +35,7 @@ const Login = () => {
     useEffect(() => {
         const unsubscribe = onAuthChange((user) => {
             if (user) {
-                navigate('/dashboard');
+                navigate('/dashboard', { replace: true });
             }
         });
         return () => unsubscribe();
@@ -49,28 +49,44 @@ const Login = () => {
         setLoading(true);
         setError('');
 
-        // Mobile detection - use Redirect for better mobile support
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        if (isMobile) {
-            const { error } = await signInWithGoogleRedirect();
+        // Try popup first (works on most modern mobile browsers too)
+        // Fall back to redirect if popup fails
+        try {
+            const { user, error } = await signInWithGoogle();
+            
             if (error) {
+                // If popup blocked/failed on mobile, try redirect
+                if (isMobile && (error.includes('popup') || error.includes('blocked') || error.includes('closed'))) {
+                    const { error: redirectError } = await signInWithGoogleRedirect();
+                    if (redirectError) {
+                        setError(redirectError);
+                        setLoading(false);
+                    }
+                    return;
+                }
                 setError(error);
                 setLoading(false);
+                return;
             }
-            // If no error, redirect happens, page unloads
-            return;
-        }
 
-        // Desktop - use Popup
-        const { error } = await signInWithGoogle();
-        if (error) {
-            setError(error);
-            setLoading(false);
-            return;
+            if (user) {
+                navigate('/dashboard', { replace: true });
+            }
+        } catch (e) {
+            // Try redirect as fallback
+            if (isMobile) {
+                const { error: redirectError } = await signInWithGoogleRedirect();
+                if (redirectError) {
+                    setError(redirectError);
+                    setLoading(false);
+                }
+            } else {
+                setError(e.message || 'Sign in failed');
+                setLoading(false);
+            }
         }
-
-        navigate('/dashboard');
     };
 
     const handleEmailSignIn = async (e) => {

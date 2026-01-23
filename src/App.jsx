@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,6 +14,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminApplicationDetails from './pages/AdminApplicationDetails';
 import NotableAlumni from './pages/NotableAlumni';
 import './App.css';
+import { checkRedirectResult, onAuthChange } from './firebase/auth';
 
 // Home Page Component
 function HomePage() {
@@ -79,6 +80,7 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
+      <AuthListener />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
@@ -90,6 +92,28 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
+}
+
+function AuthListener() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Only handle OAuth redirect result (runs once when app loads after redirect)
+    const handleRedirect = async () => {
+      try {
+        const { user } = await checkRedirectResult();
+        if (user) {
+          navigate('/dashboard', { replace: true });
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    handleRedirect();
+  }, [navigate]);
+
+  return null;
 }
 
 export default App;
