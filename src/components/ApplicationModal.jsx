@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ApplicationModal.css';
-import { signInWithGoogle, signUpWithEmail } from '../firebase/auth';
+import { signInWithGoogle, signInWithGoogleRedirect, checkRedirectResult, signUpWithEmail } from '../firebase/auth';
 import { submitApplication } from '../firebase/firestore';
 
 const ApplicationModal = ({ isOpen, onClose, applicationType }) => {
@@ -65,6 +65,58 @@ const ApplicationModal = ({ isOpen, onClose, applicationType }) => {
         setAuthData({ ...authData, [e.target.name]: e.target.value });
     };
 
+    // Detect if user is on mobile device
+    const isMobileDevice = () => {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    };
+
+    // Check for redirect result on component mount
+    useEffect(() => {
+        const handleRedirectResult = async () => {
+            const { user, error } = await checkRedirectResult();
+            if (error) {
+                setError(error);
+                return;
+            }
+            if (user) {
+                // User signed in via redirect, submit application
+                setLoading(true);
+
+                // Retrieve stored form data
+                const storedFormData = localStorage.getItem('applicationFormData');
+                const storedAppType = localStorage.getItem('applicationType');
+
+                if (!storedFormData || !storedAppType) {
+                    setError('Application data was lost. Please try again.');
+                    setLoading(false);
+                    return;
+                }
+
+                const formData = JSON.parse(storedFormData);
+
+                const { error: submitError } = await submitApplication({
+                    ...formData,
+                    type: storedAppType
+                }, user.uid);
+
+                // Clear stored data
+                localStorage.removeItem('applicationFormData');
+                localStorage.removeItem('applicationType');
+
+                if (submitError) {
+                    setError(submitError);
+                    setLoading(false);
+                    return;
+                }
+
+                setLoading(false);
+                setStep(3);
+            }
+        };
+
+        handleRedirectResult();
+    }, []);
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const form = applicationType === 'entrepreneur' ? startupForm : investorForm;
@@ -86,27 +138,47 @@ const ApplicationModal = ({ isOpen, onClose, applicationType }) => {
         setLoading(true);
         setError('');
 
-        const { user, error } = await signInWithGoogle();
-        if (error) {
-            setError(error);
+        // Use redirect for mobile, popup for desktop
+        if (isMobileDevice()) {
+            // For mobile: store form data before redirect
+            localStorage.setItem('applicationFormData', JSON.stringify(getFormData()));
+            localStorage.setItem('applicationType', applicationType);
+
+            // Initiate redirect (user will be redirected away and back)
+            const { error } = await signInWithGoogleRedirect();
+            if (error) {
+                setError(error);
+                setLoading(false);
+                // Clean up stored data on error
+                localStorage.removeItem('applicationFormData');
+                localStorage.removeItem('applicationType');
+            }
+            // Don't set loading to false here - user will be redirected
+            // The redirect result will be handled in useEffect when they return
+        } else {
+            // For desktop: use popup
+            const { user, error } = await signInWithGoogle();
+            if (error) {
+                setError(error);
+                setLoading(false);
+                return;
+            }
+
+            // Submit application
+            const { error: submitError } = await submitApplication({
+                ...getFormData(),
+                type: applicationType
+            }, user.uid);
+
+            if (submitError) {
+                setError(submitError);
+                setLoading(false);
+                return;
+            }
+
             setLoading(false);
-            return;
+            setStep(3);
         }
-
-        // Submit application
-        const { error: submitError } = await submitApplication({
-            ...getFormData(),
-            type: applicationType
-        }, user.uid);
-
-        if (submitError) {
-            setError(submitError);
-            setLoading(false);
-            return;
-        }
-
-        setLoading(false);
-        setStep(3);
     };
 
     const handleEmailSignUp = async (e) => {
