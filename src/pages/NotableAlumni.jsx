@@ -183,6 +183,15 @@ const NotableAlumni = () => {
       discription:"",
       linkedin:"https://www.linkedin.com/in/nitin-jain-17b82310?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     },
+    {
+      name: "Smarthveer Sidana",
+      image: "/council/smarthveer_sidana.jpeg",
+      title:"Founder",
+      company:"Hirequotient",
+      iit:"",
+      discription:"",
+      linkedin:"https://www.linkedin.com/in/smarthveer-sidana-07267111a/",
+    },
 ]
 
     return (
